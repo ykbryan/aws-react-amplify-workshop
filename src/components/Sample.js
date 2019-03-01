@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Post from './Post';
-import Posts from './Posts';
+import ReactMarkdown from 'react-markdown';
 
-class Blog extends Component {
+class About extends Component {
   constructor(props) {
     super(props);
     this.state = {
       body: "",
-      randomId: 1,
     }
   }
-  componentWillMount() {
+  componentDidMount() {
     this.getContent();
-  }
-  componentWillReceiveProps() {
-    const { randomId } = this.state;
-    this.setState({
-      randomId: randomId + 1
-    })
   }
   getContent = async () => {
     const env = process.env.NODE_ENV;
@@ -27,10 +18,11 @@ class Blog extends Component {
       searchPosts(
         filter:{
           and:[
-            {env: {eq: "${env}"}}
-            {type: {eq: "blog"}}
+            {env: {eq: "${env}"}},
+            {type: {eq: "sample"}},
             {name: {eq: "body"}}
           ]
+          
         }
       ){
         nextToken
@@ -56,22 +48,24 @@ class Blog extends Component {
       console.log(e);
     }
   }
-  render() {
-    const { randomId, body } = this.state;
-    if (!body) {
+  renderContent = () => {
+    let { body } = this.state;
+    if (body !== "") {
       return (
-        <h1>Loading...</h1>
-      );
+        <ReactMarkdown source={body} />
+      )
+    } else {
+      return (
+        <h1>This is a sample page...</h1>
+      )
     }
+  }
+  render() {
     return (
-      <div key={randomId} className="overflow-hidden">
-        <Switch>
-          <Route exact path={"/blog/:postId"} component={Post} />
-          <Route exact path={"/blog/page/:page"} render={(props) => <Posts {...props} body={body} />} />
-          <Redirect to="/blog/page/1" />
-        </Switch>
+      <div>
+        {this.renderContent()}
       </div>
     );
   }
 }
-export default Blog;
+export default About;
