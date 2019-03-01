@@ -22,9 +22,7 @@ class Menu extends Component {
       <div className="inner">
         <nav className="nav nav-masthead justify-content-center">
           {this.generateLink('/', 'Home')}
-          {this.generateLink('/blog', 'Blog')}
-          {this.generateLink('/works', 'Works')}
-          {this.generateLink('/contact', 'Contact')}
+          {this.generateLink('/samplepage', 'Sample Page')}
         </nav>
       </div>
     );
