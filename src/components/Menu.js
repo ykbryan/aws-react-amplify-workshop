@@ -23,6 +23,7 @@ class Menu extends Component {
         <nav className="nav nav-masthead justify-content-center">
           {this.generateLink('/', 'Home')}
           {this.generateLink('/samplepage', 'Sample Page')}
+          {this.generateLink('/new', 'New Post')}
         </nav>
       </div>
     );
