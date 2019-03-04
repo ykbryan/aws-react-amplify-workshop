@@ -1,44 +1,38 @@
-# React Native The AWSome Way!
+# A React Webapp with AWS Amplify
 
-This is a self-paced workshop designed for developers who want to build a React Native mobile application using mobile services from Amazon Web Services (AWS).
+This is a self-paced workshop designed for developers who want to build a React Web application using [AWS Amplify](https://aws-amplify.github.io/) from [Amazon Web Services (AWS)](https://aws.amazon.com/).
 
 ## Reference Architecture
 
 ![Reference Architecture](img/reference-architecture.png)
 
-Our application allow users to create meetups and also to join existing meetups. Each meetup has also a chat feature to let users discuss about the event.
+This is a sample web application to allow users to create blog posts on the website. My web application is written in [React](https://reactjs.org/) and I will also be using [AWS Amplify](https://aws-amplify.github.io/amplify-js/index.html) to quickly bootstrap the whole application. AWS Amplify provides a declarative and make it really easy to add features like authentication and analytic to our mobile application. Our backend will be powered by AWS AppSnyc, a fully managed GraphQL service. AWS AppSync defines a GraphQL Schema with data types and GraphQL operations (query, mutation and subscription). It also associate a set of resolvers to Amazon DynamoDB, where we have 1 dynamoDB table for our data model.
 
 ### Screenshots
 
 <p float="left">
-<img src="img/jjm-1.jpg" width="33%" alt="events list">
-<img src="img/jjm-2.jpg" width="33%">
-<img src="img/jjm-3.jpg" width="33%">
+  <img src="img/webapp-1.png" width="50%" />
+  <img src="img/webapp-2.png" width="50%" />
 </p>
 
+
 The data model will consist of:
-* **Users**: a list of users who are using the app
-* **Events**: a list of events created by the users in the app
-* **Chats**: a list of chat messages created in the event by users
-* **EventUserJoined**: a joint table between users and events to indicate who is joining which events
-
-Our mobile application will be written in [React Native](https://facebook.github.io/react-native/). We will also be using [AWS Amplify](https://aws-amplify.github.io/amplify-js/index.html). AWS Amplify provides a declarative and make it really easy to add features like authentication and analytic to our mobile application. Our backend will be powered by AWS AppSnyc, a fully managed GraphQL service. AWS AppSync defines a GraphQL Schema with data types and GraphQL operations (query, mutation and subscription). It also associate a set of resolvers to Amazon DynamoDB, where we have 4 tables for our data models.
-
+* **Posts**: a list of posts (blog posts) that each consists of title and message
 
 ## [Lab 1](setup/)
 Setup AWS Cloud9 and AWS environment.
 
 ## [Lab 2](amplify/)
-Setup React development environment and AWS Amplify CLI in AWS Cloud9.
+Setup React Native development environment and AWS Amplify CLI in AWS Cloud9.
 
 ## [Lab 3](appsync/)
-Setup AppSync
+Setup AppSync & configure Cognito trigger in AWS console with AWS Lambda
 
 ## [Lab 4](app/)
-Publish your Web App
+Run your React Native App on your Mobile Device!
 
 ## [Lab 5](cicd/) 
-CI/CD for your Web App
+CI/CD for your React Native App
 
 
 #####  FootNote

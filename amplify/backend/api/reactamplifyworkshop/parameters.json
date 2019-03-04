@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "reactamplifyworkshop",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognito35a14396",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
