@@ -11,8 +11,8 @@ This is a sample web application to allow users to create blog posts on the webs
 ### Screenshots
 
 <p float="left">
-  <img src="img/webapp-1.png" width="50%" />
-  <img src="img/webapp-2.png" width="50%" />
+  <img src="img/webapp-1.png" width="45%" />
+  <img src="img/webapp-2.png" width="45%" />
 </p>
 
 
@@ -23,20 +23,16 @@ The data model will consist of:
 Setup AWS Cloud9 and AWS environment.
 
 ## [Lab 2](amplifycli/)
-Setup React Native development environment and AWS Amplify CLI in AWS Cloud9.
+Setup React development environment and AWS Amplify CLI in AWS Cloud9.
 
 ## [Lab 3](appsync/)
-Setup AppSync & configure Cognito trigger in AWS console with AWS Lambda
+Setup AppSync
 
 ## [Lab 4](app/)
-Run your React Native App on your Mobile Device!
+Run your React App on your Browser!
 
 ## [Lab 5](cicd/) 
-CI/CD for your React Native App
-
-
-#####  FootNote
-**Boh Jio** : You didn't invite me. Hokkien or Teochew pronunciation of "無招" (Mandarin 没招 méi-zhāo). *Reference: Singlish Vocabulary* (https://en.wikipedia.org/wiki/Singlish_vocabulary)
+CI/CD for your React Web App
 
 ## Clean up
 
