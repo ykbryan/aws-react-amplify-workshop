@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import ReactMarkdown from 'react-markdown';
 
 class About extends Component {
   constructor(props) {
@@ -13,46 +12,31 @@ class About extends Component {
     this.getContent();
   }
   getContent = async () => {
-    const env = process.env.NODE_ENV;
-    const graphqlQuery = `query searchPosts{
-      searchPosts(
-        filter:{
-          and:[
-            {env: {eq: "${env}"}},
-            {type: {eq: "sample"}},
-            {name: {eq: "body"}}
-          ]
-          
-        }
-      ){
-        nextToken
-        items{
-          title
-          content
-          name
-        }
+    const graphqlQuery = `query getPost {
+      getPost(id: "aca25059-ca0e-4a77-be8b-96494f5cadfb") {
+        title
+        message
       }
     }`;
 
     try {
       const response = await API.graphql(graphqlOperation(graphqlQuery));
-      const items = response.data.searchPosts.items;
-      if (items.length > 0) {
-        var newConfig = {};
-        for (let item of items) {
-          newConfig[item.name] = item.content;
-        }
-        this.setState(newConfig);
+      console.log(response)
+      const items = response.data.getPost;
+      if (items.message) {
+        this.setState({
+          message: items.message
+        })
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   }
   renderContent = () => {
-    let { body } = this.state;
-    if (body !== "") {
+    let { message } = this.state;
+    if (message !== "") {
       return (
-        <ReactMarkdown source={body} />
+        <div>{message}</div>
       )
     } else {
       return (
