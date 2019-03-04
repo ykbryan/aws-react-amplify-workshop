@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API, Analytics, graphqlOperation } from 'aws-amplify';
 
 class About extends Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class About extends Component {
   }
   componentDidMount() {
     this.getContent();
+    Analytics.record({ name: 'sampleVisit' });
   }
   getContent = async () => {
     const graphqlQuery = `query getPost {

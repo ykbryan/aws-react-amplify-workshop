@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API, Analytics, graphqlOperation } from 'aws-amplify';
 
 class Home extends Component {
 
@@ -13,6 +13,8 @@ class Home extends Component {
   componentDidMount() {
     // implement edit function
     this.getPosts();
+    Analytics.record({ name: 'homeVisit' });
+
   }
 
   getPosts = async () => {
