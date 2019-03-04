@@ -9,6 +9,11 @@
             "UnauthRoleName": "reactamplifyworkshop-20190301180526-unauthRole",
             "StackName": "reactamplifyworkshop-20190301180526",
             "StackId": "arn:aws:cloudformation:us-east-1:566416766292:stack/reactamplifyworkshop-20190301180526/89e77390-3c09-11e9-a5cd-12de81a2e318"
+        },
+        "categories": {
+            "auth": {
+                "cognito35a14396": {}
+            }
         }
     },
     "prod": {

@@ -4,5 +4,17 @@
 			"service": "S3AndCloudFront",
 			"providerPlugin": "awscloudformation"
 		}
+	},
+	"auth": {
+		"cognito35a14396": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"analytics": {
+		"reactamplifyworkshop": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
 	}
 }
