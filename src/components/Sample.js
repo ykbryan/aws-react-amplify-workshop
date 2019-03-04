@@ -13,6 +13,7 @@ class About extends Component {
     Analytics.record({ name: 'sampleVisit' });
   }
   getContent = async () => {
+    // TODO: update the graphQL query
     const graphqlQuery = `query getPost {
       getPost(id: "aca25059-ca0e-4a77-be8b-96494f5cadfb") {
         title

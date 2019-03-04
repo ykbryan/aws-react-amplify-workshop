@@ -18,6 +18,7 @@ class Home extends Component {
   }
 
   getPosts = async () => {
+    // TODO: update the graphQL query
     const graphqlQuery = `query getPosts {
       listPosts {
         items {

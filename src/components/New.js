@@ -15,7 +15,7 @@ class New extends Component {
   }
 
   addPost = async (title, message) => {
-    console.log(title, message)
+    // TODO: update the graphQL mutation
     const createMutation = `mutation createPost {
       createPost(input:{
         title: "${title}"
