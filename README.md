@@ -22,7 +22,7 @@ The data model will consist of:
 ## [Lab 1](setup/)
 Setup AWS Cloud9 and AWS environment.
 
-## [Lab 2](amplify/)
+## [Lab 2](amplifycli/)
 Setup React Native development environment and AWS Amplify CLI in AWS Cloud9.
 
 ## [Lab 3](appsync/)
