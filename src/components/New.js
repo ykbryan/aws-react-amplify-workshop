@@ -16,6 +16,21 @@ class New extends Component {
 
   addPost = async (title, message) => {
     console.log(title, message)
+    const createMutation = `mutation createPost {
+      createPost(input:{
+        title: "${title}"
+        message: "${message}"
+      }) {
+        id
+      }
+    }`;
+
+    try {
+      await API.graphql(graphqlOperation(createMutation));
+      console.log("success, do something here");
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   handleSubmit = (event) => {
