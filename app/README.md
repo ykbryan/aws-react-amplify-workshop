@@ -1,24 +1,21 @@
 # React Native App with AWS Mobile Hub & AppSync
 
-## Prerequisite
+## Setup & Run The React Web App
 
-[Setup Cloud9](../setup/)
+**WARNING:** Make sure you are **inside React Docker** environment before you proceed.
 
-[Setup Amplify](../amplify/)
-
-[Setup AppSync](../appsync/)
-
-## Setup & Run The React Native App
-
-We have prepared a sample app for you in this exercise. Simple `git clone` the repo `https://github.com/ykbryan/aws-amplify-sample-react-native-app` into another folder and copy the content to your `rn` folder on the following commands:
+We have prepared a sample app for you in this exercise. Please download it in your Cloud9 by entering the following commands:
 
 ```
-git clone https://github.com/ykbryan/aws-amplify-sample-react-native-app app
-mv app/* .
-rm -Rf app/
+cd /code
+wget https://github.com/ykbryan/aws-react-amplify-workshop/raw/master/webapp.zip
+unzip webapp.zip
+mv webapp/* .
+rm -Rf webapp/
+rm webapp.zip
 ```
 
-Make sure you are **inside React Native Docker** environment, you can now run the following command:
+Run the following commands to get your web app running in your AWS Cloud9:
 ```
 cd /code && yarn
 yarn start
@@ -37,28 +34,22 @@ error An unexpected error occurred: "Command failed.
 Exit code: 1
 ```
 
-## Run your App in Expo
+## Run your Web App in Cloud9
 
-Once you have successfully ran `yarn start` without any errors, you should see the following screen on the Docker terminal.
+Once you have successfully ran `yarn start` without any errors, you should see "Compiled successfully!" in green and the following screen on the Docker terminal.
 
-![test](images/expo-barcode.png)
+![test](images/cloud9-react-server.png)
 
-Follow following instructions to get this application to work on your phone.
+In order to preview the web app, you have to click "Preview" at the top panel & select "Preview Running Application".
 
-**iPhone users** On your safari, follow the steps. (The QR code does not work)
-```
-1. Open a new tab on your safari
-2. In the URL/search bar, enter the url in the format of exp://<ip adderss> from your Docker terminal.
-3. For our case, it was exp://13.250.105.6:19000
-```
+![preview](images/cloud9-preview.png)
 
-**Android users** Open your camera app, follow the steps
-```
-1. Point your camera at the QR code that appears on your Docker terminal
-```
+And you should now see the web app running on a separate tab.
+
+![preview-window](images/cloud9-preview-window.png)
 
 ## Bonus Exercise
 Notice that some part of the app might not be working. You are not complete the following in order to make this app work:
-1. Complete the graphql query events at `screen/home/Home.js`
-2. Complete the graphql mutation events at `screen/event/EventDetail.js`
-3. Complete the graphql subscription to get new messages at `screen/event/ChatRoom.js`
+1. Complete the graphql query posts at `src/components/Home.js`
+2. Complete the graphql mutation post at `src/components/New.js`
+3. Complete the graphql query to get a particular post at `src/components/Sample.js`
