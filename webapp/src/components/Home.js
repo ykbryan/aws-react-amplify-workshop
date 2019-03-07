@@ -18,16 +18,8 @@ class Home extends Component {
   }
 
   getPosts = async () => {
-    const graphqlQuery = `query getPosts {
-      listPosts {
-        items {
-          id
-          title
-          message
-        }
-        nextToken
-      } 
-    }`;
+    // TODO: add query
+    const graphqlQuery = ``;
 
     try {
       const response = await API.graphql(graphqlOperation(graphqlQuery));
