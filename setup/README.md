@@ -6,7 +6,6 @@ We will be using React to develop our web app and will run a React Web App insid
 **Configure Cloud9**
 * [Create Cloud9 environment](#create-cloud9-environment)
 * [Allocate storage](#allocate-storage)
-* [Configure security group](#configure-security-group)
 
 **Configure React Docker Environment**
 * [Create React Docker Environment](#create-react-docker-environment)
@@ -57,29 +56,6 @@ Your Cloud9 instance is allocated 8 GB storage by default. We will increase this
 ![AWS EBS Changed](images/aws-ebs-changed.jpg)
 
 9. Go back and select your instance. Reboot that instance to make sure the EBS changes take effect.
-
-## Configure security group
-AWS Cloud9 restricts inbound access to the IP addresses it uses to connect to the instance. In addition, we will need to allow traffic on `3000`.
-
-1. Go back to the tab where you have the EC2 instances.
-
-2. Select the same EC2 instance and select the security group
-![AWS EC2 Security Group](images/aws-ec2-security-group.jpg)
-
-3. At the Security Group, click on **Inbound**, then Edit.
-![AWS Security Group](images/aws-security-group.jpg)
-
-4. Click on **Add Rule**
-![AWS Add Security Group Rule](images/aws-add-security-group-rule.jpg)
-
-5. Key in `3000`, and `0.0.0.0/0`, in respective fields
-![AWS Add New Rule](images/aws-add-new-rule.jpg)
-
-6. Click on **Save**.
-![AWS Save New Rule](images/aws-security-group-rule-save.jpg)
-
-7. Double-check that the new inbound rules have been added
-![AWS Security Group New Rule](images/aws-security-group-new-rule.jpg)
 
 # Create React Docker Environment
 
