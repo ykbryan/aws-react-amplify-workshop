@@ -1,7 +1,5 @@
 # Setup
-We will be using React-Native and [Expo](https://expo.io) to develop our mobile app. The React-Native application is pre-created for you (using `create-react-native-app` method). We will be using the Expo client on your mobile device to preview the app as we build it. Expo has two main components - the Expo development server and the mobile client. We will run a React Native and expo development server inside a docker container on [AWS Cloud9](https://aws.amazon.com/cloud9/). 
-
-<img src="../img/rn-expo.png" width="800">
+We will be using React to develop our web app and will run a React Web App inside a docker container on [AWS Cloud9](https://aws.amazon.com/cloud9/). 
 
 ## Table of Contents
 
@@ -11,7 +9,7 @@ We will be using React-Native and [Expo](https://expo.io) to develop our mobile 
 * [Configure security group](#configure-security-group)
 
 **Configure React Native Docker Environment**
-* [Create React Native Docker Environment](#create-react-native-docker-environment)
+* [Create React Docker Environment](#create-react-docker-environment)
 
 **Configure Expo**
 * [Install Expo mobile client](#install-expo-mobile-client)
