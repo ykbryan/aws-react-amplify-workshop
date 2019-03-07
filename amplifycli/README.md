@@ -1,148 +1,158 @@
-# Setup
-We will be using React to develop our web app and will run a React Web App inside a docker container on [AWS Cloud9](https://aws.amazon.com/cloud9/). 
+# AWS Amplify
 
-## Table of Contents
+AWS Amplify provides a declarative and easy-to-use interface across different categories of cloud operations. AWS Amplify goes well with any JavaScript based frontend workflow, and React for web developers.
 
-**Configure Cloud9**
-* [Create Cloud9 environment](#create-cloud9-environment)
-* [Allocate storage](#allocate-storage)
-* [Configure security group](#configure-security-group)
+## Table of Contents:
+* [Initialise a development project](#initialise-a-development-project)
+* [Add Cognito user pool](#add-cognito-user-pool)
+* [Create a Cognito user](#create-a-cognito-user)
 
-**Configure React Docker Environment**
-* [Create React Docker Environment](#create-react-docker-environment)
+## Initialise a development project
 
-# Configure Cloud9
-## Create Cloud9 environment
+Run this command inside the react docker environment. 
 
-1. Click the link [here](https://ap-southeast-1.console.aws.amazon.com/cloud9/home/product?region=ap-southeast-1) to go to Cloud9 console. Sign in with your credentials if necessary. You need to be in **Singapore** region for this lab. 
-
-2. Click on **Create Environment**.
-![AWS Cloud9 Create Environment](images/aws-cloud9-create.png)
-
-3. Give any appropriate name and description to your environment. Click on **Next**.
-
-4. Choose **M4.large** instance type and click on **Next**.
-
-5. Click on **Create Environment**.
-
-6. While it is being built, you may move on to the next section.
-
-7. After a few minutes, when your environment is up, you should see following screen.
-![AWS Cloud9](images/aws-cloud9.jpg)
-
-## Allocate storage
-Your Cloud9 instance is allocated 8 GB storage by default. We will increase this because we will be installing dependencies.
-
-1. Go to your running instances by clicking [here](https://ap-southeast-1.console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1#Instances:sort=desc:launchTime)
-
-2. Find the instance you have just created by launching a Cloud9 environment. The name will be `aws-cloud9-<your environment name>-<random string>`
-![AWS EC2 Found](images/aws-ec2-found.jpg)
-
-3. Select the instance. Scroll down at the bottom part. Find the Block devices.
-![AWS EC2 Block Device](images/aws-ec2-block-devices.jpg)
-
-4. Click onto it. You will see a pop up.
-![AWS EC2 Select Block Device](images/aws-ec2-block-device-popup.jpg)
-
-5. Right click on it and open in new tab.
-![AWS Open New Tab](images/aws-open-new-tab.jpg)
-
-6. Click on **Actions**, **Modify Volume**.
-![AWS EC2 Modify Volume](images/aws-ec2-modify-volume.jpg)
-
-7. Change *8* to *120* and click on **Modify**.
-![AWS EC2 Volume Modified](images/aws-ec2-volume-modified.jpg)
-
-8. Click on **Yes** and wait for the change to finish. It will take a couple of minutes.
-![AWS EBS Changed](images/aws-ebs-changed.jpg)
-
-9. Go back and select your instance. Reboot that instance to make sure the EBS changes take effect.
-
-## Configure security group
-AWS Cloud9 restricts inbound access to the IP addresses it uses to connect to the instance. In addition, we will need to allow traffic on `3000`.
-
-1. Go back to the tab where you have the EC2 instances.
-
-2. Select the same EC2 instance and select the security group
-![AWS EC2 Security Group](images/aws-ec2-security-group.jpg)
-
-3. At the Security Group, click on **Inbound**, then Edit.
-![AWS Security Group](images/aws-security-group.jpg)
-
-4. Click on **Add Rule**
-![AWS Add Security Group Rule](images/aws-add-security-group-rule.jpg)
-
-5. Key in `3000`, and `0.0.0.0/0`, in respective fields
-![AWS Add New Rule](images/aws-add-new-rule.jpg)
-
-6. Click on **Save**.
-![AWS Save New Rule](images/aws-security-group-rule-save.jpg)
-
-7. Double-check that the new inbound rules have been added
-![AWS Security Group New Rule](images/aws-security-group-new-rule.jpg)
-
-# Create React Docker Environment
-
-AWS Cloud9 environment comes pre-installed with Docker.
-
-1. Go back to your Cloud9 environment
-![AWS Cloud9](images/aws-cloud9.jpg)
-
-2. Let's create a working directory. We have chosen the name as **rn**. Type `mkdir rn` to create the directory. Press **Enter** key.
-![AWS Cloud9 mkdir rn](images/aws-cloud9-mkdir-rn.jpg)
-
-3. Switch to the newly created directory. Type `cd rn`
-![AWS Cloud9 RN](images/aws-cloud9-rn.jpg)
-
-4. Create a `Dockerfile` which is the definition of the docker container that will host our React development environment. Type `touch Dockerfile`. And press **Enter** key. You will find a Dockerfile created inside the `rn` folder.
-![AWS Cloud9 Touch Dockerfile](images/aws-cloud9-touch-dockerfile.jpg)
-
-5. Double click to open it.
-![AWS Cloud9 Open File](images/aws-cloud9-open-file.jpg)
-
-6. Copy the following commands and paste inside the file. Take a few minutes to review this file. We are also installing the AWS mobile CLI.
-
+**IMPORTANT**: Ensure you are in the ```/code``` directory.
 ```
-FROM node:11.1.0
-RUN mkdir -p /code
-WORKDIR /code
-
-RUN apt-get update && apt-get install -y python-dev screen
-
-RUN npm install -g create-react-app @aws-amplify/cli
-
-# CHANGE the UID accordingly, follow the step at the note section.
-RUN useradd -m -u 501 -s /bin/bash ec2-user
+amplify init
 ```
 
-Note: find out what is your cloud UID by doing `echo $UID`. By default (at this time of the workshop), the UID is __501__.
-
-![AWS Cloud9 dockerfile](images/aws-cloud9-dockerfile.jpg)
-
-7. Save it by pressing `Command + S` keys for Mac. Or `Control + S` keys for Windows. You can see **All Changes Saved** sign at the top of the Cloud9 Window.
-![AWS Cloud9 Save Changes](images/aws-cloud-save-changes.jpg)
-
-8. Go back to the lower window. Key in `docker build -t reactweb .` and press **Enter** key. Notice this command ends with a dot.
-![AWS Cloud9 Docker Command](images/aws-cloud9-docker-command.jpg)
-
-9. This will take *a few minutes*. You might see some `npm warnings` in red around optional dependencies. You can ignore them.
-![AWS Cloud9 Docker Build](images/aws-cloud9-docker-build.jpg)
-
-10.	You can verify your image was successfully built by typing `docker images`. You should see a `reactweb` image.
-![AWS Cloud9 Docker Images](images/aws-cloud9-docker-images.jpg)
-
-11. Start the React Docker using this image with the command below.
-This step allows us to use AWS Cloud9 to be the IDE for our React project under the directory ```~/environment/rn``` while having a Docker container execute the React web server. 
+Follow the commands in the following, take note that the `project's sourced directory` is ``.`` 
 ```
-cd ~/environment/rn
+Note: It is recommended to run this command from the root of your app directory
+? Choose your default editor: None
+? Choose the type of app that you're building javascript
+Please tell us about your project
+? What javascript framework are you using react
+? Source Directory Path:  /
+? Distribution Directory Path: /
+? Build Command:  npm run-script build
+? Start Command: npm run-script start
+Using default provider awscloudformation
 
-docker run -it --rm -p 3000:3000 \
--v "$PWD:/code" --user $UID \
--v /home/ec2-user/.awsmobilejs:/home/ec2-user/.awsmobilejs \
- reactweb:latest bash
+For more information on AWS Profiles, see:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html
 
+Using default provider  awscloudformation
+AWS access credentials can not be found.
+? Setup new user Yes
+Follow these steps to set up access to your AWS account:
+
+Sign in to your AWS administrator account:
+https://console.aws.amazon.com/
+Press Enter to continue
+
+Specify the AWS Region
+? region:  ap-southeast-1
+Specify the username of the new IAM user:
+? user name:  amplify-user
+Complete the user creation using the AWS console
+https://console.aws.amazon.com/iam/home?region=undefined#/users$new?step=final&accessKey&userNames=amplify-user&permissionType=policies&policies=arn:aws:iam::aws:policy%2FAdministratorAccess
+Press Enter to continue
+
+Enter the access key of the newly created user:
+? accessKeyId:  XXXXXX**********
+? secretAccessKey:  XXXXXXXXXXX********************
+This would update/create the AWS Profile in your local machine
+? Profile Name:  default
+
+Successfully set up the new user.
+
+For more information on AWS Profiles, see:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html
+
+? Do you want to use an AWS profile? Yes
+? Please choose the profile you want to use. default
 ```
 
-Now that you are in the container, run `amplify --version` to double check that the amplify CLI has been properly installed in the docker container.
+Then you should see a bunch of `CREATE_IN_PROGRESS` commands running at the background for you. These are cloudformation templates that are automatically generated via the `init` command.
 
-Now you have successfully setup your AWS Cloud9 in your AWS account, you can now proceed to [next section](../).
+You should see this output:
+```
+✔ Successfully created initial AWS cloud resources for deployments.
+
+Your project has been successfully initialized and connected to the cloud!
+
+Some next steps:
+"amplify status" will show you what you've added already and if it's locally configured or deployed
+"amplify <category> add" will allow you to add features like user login or a backend API
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+Pro tip:
+Try "amplify add api" to create a backend API and then "amplify publish" to deploy everything
+```
+
+## Add Cognito user pool
+
+We need a way to authenticate the users of our app. We will use Amazon Cognito as our user directory. Setting it up is as simple as running the command below inside the react docker environment.
+```
+amplify auth add
+```
+
+You should see:
+
+```
+Using service: Cognito, provided by: awscloudformation
+ The current configured provider is Amazon Cognito. 
+ Do you want to use the default authentication and security configuration? (Use arrow keys)
+❯ Yes, use the default configuration. 
+  No, I will set up my own configuration. 
+  I want to learn more. 
+```
+
+You can choose to setup your own configuration. At this point, let's choose the default configuration. Press `Enter`
+
+You should see:
+
+```
+Successfully added resource cognito80421876 locally
+
+Some next steps:
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+```
+
+At this point, you can choose to re-configure your `Auth` again by entering the following command:
+
+```
+amplify auth update
+```
+
+We will now push the settings to your AWS account. This will create a Cognito User Pool automatically for you via CloudFormation.
+
+Run this command inside the react docker environment:
+```
+amplify push
+```
+
+At this point, you can see a table that shows the overall changes that are going to be made:
+```
+| Category | Resource name   | Operation | Provider plugin   |
+| -------- | --------------- | --------- | ----------------- |
+| Auth     | cognito80421876 | Create    | awscloudformation |
+? Are you sure you want to continue? (Y/n) 
+```
+
+Press `Y` and `Enter` to confirm. This will take a few minutes to run. Once done, you should see the following:
+
+```
+✔ All resources are updated in the cloud
+```
+
+## Create a Cognito user
+1. Let's set up a user for testing. Navigate to your [Cognito Console](https://console.aws.amazon.com/cognito/home)
+
+2. Select **Manage User Pools**
+![Amazon Cognito Console](images/amazon-cognito.png)
+
+3. Select the **Cognito User Pool** that was generated by Mobile Hub and click on Users and groups.
+![AWS Cognito Select Users](images/aws-cognito-select-users-groups.png)
+
+4. Click **Create User** to begin
+
+5. Fill up the form to create your first user in Cognito for testing purpose in the next lab. At this time, you do not need a real phone number and email. Refer to the screenshot below for more information and click **Create User** to proceed.
+![AWS Cognito Create User](images/aws-cognito-create-user.png)
+
+6. Check that your newly created user is in the users table with the status column set to **FORCE_CHANGE_PASSWORD** and enabled column set to **ENABLED**
+
+Once done, you can now proceed to next [section](../).
