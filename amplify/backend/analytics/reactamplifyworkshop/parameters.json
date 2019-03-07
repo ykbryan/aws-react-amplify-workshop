@@ -1,10 +1,10 @@
 {
     "appName": "reactamplifyworkshop",
-    "roleName": "pinpointLambdaRole997d1010",
-    "cloudWatchPolicyName": "cloudWatchPolicy997d1010",
-    "pinpointPolicyName": "pinpointPolicy997d1010",
-    "authPolicyName": "pinpoint_amplify_997d1010",
-    "unauthPolicyName": "pinpoint_amplify_997d1010",
+    "roleName": "pinpointLambdaRole777178b1",
+    "cloudWatchPolicyName": "cloudWatchPolicy777178b1",
+    "pinpointPolicyName": "pinpointPolicy777178b1",
+    "authPolicyName": "pinpoint_amplify_777178b1",
+    "unauthPolicyName": "pinpoint_amplify_777178b1",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },

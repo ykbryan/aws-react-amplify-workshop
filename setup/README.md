@@ -121,4 +121,4 @@ Now that you are in the container, run `amplify --version` to double check that 
 
 ![AWS Amplify installed in AWS Cloud9](images/aws-cloud9-amplify-installed.png)
 
-Now you have successfully setup your AWS Cloud9 in your AWS account, you can now proceed to [next section](../).  
+Now you have successfully setup your AWS Cloud9 in your AWS account, you can now proceed to [next section](../amplifycli/). 
