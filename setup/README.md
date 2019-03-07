@@ -99,13 +99,11 @@ Note: find out what is your cloud UID by doing `echo $UID`. By default (at this 
 ![AWS Cloud9 Save Changes](images/aws-cloud9-save-changes.png)
 
 8. Go back to the lower window. Key in `docker build -t reactweb .` and press **Enter** key. Notice this command ends with a dot.
-![AWS Cloud9 Docker Command](images/aws-cloud9-docker-command.jpg)
+![AWS Cloud9 Docker Command](images/aws-cloud9-docker-command.png)
 
 9. This will take *a few minutes*. You might see some `npm warnings` in red around optional dependencies. You can ignore them.
-![AWS Cloud9 Docker Build](images/aws-cloud9-docker-build.jpg)
 
 10.	You can verify your image was successfully built by typing `docker images`. You should see a `reactweb` image.
-![AWS Cloud9 Docker Images](images/aws-cloud9-docker-images.jpg)
 
 11. Start the React Docker using this image with the command below.
 This step allows us to use AWS Cloud9 to be the IDE for our React project under the directory ```~/environment/rn``` while having a Docker container execute the React web server. 
@@ -120,5 +118,7 @@ docker run -it --rm -p 8080:3000 \
 ```
 
 Now that you are in the container, run `amplify --version` to double check that the amplify CLI has been properly installed in the docker container.
+
+![AWS Amplify installed in AWS Cloud9](images/aws-cloud9-amplify-installed.png)
 
 Now you have successfully setup your AWS Cloud9 in your AWS account, you can now proceed to [next section](../).  
