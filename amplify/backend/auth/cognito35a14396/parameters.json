@@ -1,6 +1,6 @@
 {
     "identityPoolName": "reactamplifyworkshop_identitypool_1803f64f",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "thirdPartyAuth": false,
     "lambdaLogPolicy": "cognito35a14396_lambda_log_policy",
     "openIdLambdaRoleName": "cognito35a14396_openid_lambda_role",
