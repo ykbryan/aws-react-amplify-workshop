@@ -7,6 +7,7 @@ AWS AppSync automatically updates the data in web and mobile applications in rea
 * [Edit your GraphQL Schema](#edit-your-graphql-schema)
 * [Test your query](#test-your-query)
 * [Cognito User Pool Triggers](#cognito-user-pool-triggers)
+* [Create Analytics]($create-analytics)
 
 ## Create AppSync API
 
@@ -192,3 +193,33 @@ Once you have your Lambda function ready, we can now attach this function as one
 5. Scroll down, select **Save changes** at the bottom of the page
 
 You are now set. Next, you can proceed to [Lab 4](../app) to run your React Native app on your mobile phone.
+
+## Create Analytics
+
+The Analytics category enables you to collect analytics data for your app. The Analytics category comes with built-in support for Amazon Pinpoint and Amazon Kinesis.
+
+```
+amplify add analytics
+```
+
+The CLI will prompt configuration options for the Analytics category such as Amazon Pinpoint resource name and analytics event settings. You should see:
+
+```
+Using service: Pinpoint, provided by: awscloudformation
+? Provide your pinpoint resource name: reactamplifyworkshop
+Adding analytics would add the Auth category to the project if not already added.
+? Apps need authorization to send analytics events. Do you want to allow guests and unauthenticated users to send analytics events? (we recommend you allow this when getting started) Yes
+Successfully updated auth resource locally.
+Successfully added resource reactamplifyworkshop locally
+
+Some next steps:
+"amplify push" builds all of your local backend resources and provisions them in the cloud
+"amplify publish" builds all your local backend and front-end resources (if you have hosting category added) and provisions them in the cloud
+```
+
+To update your backend run:
+```
+amplify push
+```
+
+Wait for the backend to finish the update. Once done, you can proceed to the [next section](../app).
