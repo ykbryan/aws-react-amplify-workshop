@@ -93,10 +93,10 @@ RUN useradd -m -u 501 -s /bin/bash ec2-user
 
 Note: find out what is your cloud UID by doing `echo $UID`. By default (at this time of the workshop), the UID is __501__.
 
-![AWS Cloud9 dockerfile](images/aws-cloud9-dockerfile.jpg)
+![AWS Cloud9 dockerfile](images/aws-cloud9-dockerfile.png)
 
 7. Save it by pressing `Command + S` keys for Mac. Or `Control + S` keys for Windows. You can see **All Changes Saved** sign at the top of the Cloud9 Window.
-![AWS Cloud9 Save Changes](images/aws-cloud-save-changes.jpg)
+![AWS Cloud9 Save Changes](images/aws-cloud9-save-changes.png)
 
 8. Go back to the lower window. Key in `docker build -t reactweb .` and press **Enter** key. Notice this command ends with a dot.
 ![AWS Cloud9 Docker Command](images/aws-cloud9-docker-command.jpg)
