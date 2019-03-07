@@ -8,12 +8,8 @@ We will be using React to develop our web app and will run a React Web App insid
 * [Allocate storage](#allocate-storage)
 * [Configure security group](#configure-security-group)
 
-**Configure React Native Docker Environment**
+**Configure React Docker Environment**
 * [Create React Docker Environment](#create-react-docker-environment)
-
-**Configure Expo**
-* [Install Expo mobile client](#install-expo-mobile-client)
-* [Create Expo account](#create-expo-account)
 
 # Configure Cloud9
 ## Create Cloud9 environment
@@ -63,7 +59,7 @@ Your Cloud9 instance is allocated 8 GB storage by default. We will increase this
 9. Go back and select your instance. Reboot that instance to make sure the EBS changes take effect.
 
 ## Configure security group
-AWS Cloud9 restricts inbound access to the IP addresses it uses to connect to the instance. In addition, we will need to allow traffic on `19000` and `19001`, both of which are used by Expo. The Expo server runs on port `19000` while the npm package manager is exposed on `19001`. Refer to the [Expo docs](https://docs.expo.io/versions/v29.0.0/guides/how-expo-works.html) to learn more.
+AWS Cloud9 restricts inbound access to the IP addresses it uses to connect to the instance. In addition, we will need to allow traffic on `3000`, both of which are used by Expo. The Expo server runs on port `19000` while the npm package manager is exposed on `19001`. Refer to the [Expo docs](https://docs.expo.io/versions/v29.0.0/guides/how-expo-works.html) to learn more.
 
 1. Go back to the tab where you have the EC2 instances.
 
@@ -76,7 +72,7 @@ AWS Cloud9 restricts inbound access to the IP addresses it uses to connect to th
 4. Click on **Add Rule**
 ![AWS Add Security Group Rule](images/aws-add-security-group-rule.jpg)
 
-5. Key in `19000-19001`, and `0.0.0.0/0`, in respective fields
+5. Key in `3000`, and `0.0.0.0/0`, in respective fields
 ![AWS Add New Rule](images/aws-add-new-rule.jpg)
 
 6. Click on **Save**.
@@ -85,7 +81,7 @@ AWS Cloud9 restricts inbound access to the IP addresses it uses to connect to th
 7. Double-check that the new inbound rules have been added
 ![AWS Security Group New Rule](images/aws-security-group-new-rule.jpg)
 
-# Create React Native Docker Environment
+# Create React Docker Environment
 
 AWS Cloud9 environment comes pre-installed with Docker.
 
@@ -113,12 +109,7 @@ WORKDIR /code
 
 RUN apt-get update && apt-get install -y python-dev screen
 
-RUN cd /tmp/ && git clone https://github.com/facebook/watchman.git && \ 
-cd watchman && git checkout v4.9.0 && ./autogen.sh && \
-./configure && make -j4 && make install  && cd / && rm -rf /tmp/watchman
-
-# RUN npm set progress=false && \
-RUN npm install -g create-react-native-app expo-cli @aws-amplify/cli
+RUN npm install -g create-react-app @aws-amplify/cli
 
 # CHANGE the UID accordingly, follow the step at the note section.
 RUN useradd -m -u 501 -s /bin/bash ec2-user
@@ -131,37 +122,27 @@ Note: find out what is your cloud UID by doing `echo $UID`. By default (at this 
 7. Save it by pressing `Command + S` keys for Mac. Or `Control + S` keys for Windows. You can see **All Changes Saved** sign at the top of the Cloud9 Window.
 ![AWS Cloud9 Save Changes](images/aws-cloud-save-changes.jpg)
 
-8. Go back to the lower window. Key in `docker build -t reactnative-expo .` and press **Enter** key. Notice this command ends with a dot.
+8. Go back to the lower window. Key in `docker build -t reactweb .` and press **Enter** key. Notice this command ends with a dot.
 ![AWS Cloud9 Docker Command](images/aws-cloud9-docker-command.jpg)
 
 9. This will take *a few minutes*. You might see some `npm warnings` in red around optional dependencies. You can ignore them.
 ![AWS Cloud9 Docker Build](images/aws-cloud9-docker-build.jpg)
 
-10.	You can verify your image was successfully built by typing `docker images`. You should see a `reactnative-expo` image.
+10.	You can verify your image was successfully built by typing `docker images`. You should see a `reactweb` image.
 ![AWS Cloud9 Docker Images](images/aws-cloud9-docker-images.jpg)
 
-11. Start the React Native Docker using this image with the command below.
-This step allows us to use AWS Cloud9 to be the IDE for our React Native project under the directory ```~/environment/rn``` while having a Docker container execute the React Native and Expo development server. The 2 TCP ports (19000, 19001) allows our mobile device to communicate with the React Native/Expo container.
+11. Start the React Docker using this image with the command below.
+This step allows us to use AWS Cloud9 to be the IDE for our React project under the directory ```~/environment/rn``` while having a Docker container execute the React web server. 
 ```
 cd ~/environment/rn
 
-docker run -it --rm -p 19000:19000 -p 19001:19001 \
+docker run -it --rm -p 3000:3000 \
 -v "$PWD:/code" --user $UID \
 -v /home/ec2-user/.awsmobilejs:/home/ec2-user/.awsmobilejs \
--e REACT_NATIVE_PACKAGER_HOSTNAME=`curl -s http://169.254.169.254/latest/meta-data/public-ipv4` \
- reactnative-expo:latest bash
+ reactweb:latest bash
 
 ```
 
 Now that you are in the container, run `amplify --version` to double check that the amplify CLI has been properly installed in the docker container.
 
-# Configure Expo
-## Install Expo mobile client
-
-Follow the installation instructions for your mobile device on the [official Expo website](https://docs.expo.io/versions/latest/introduction/installation#mobile-client-expo-for-ios-and-android)
-
-## Create Expo account
-
-Create an Expo account via the [offical Expo website](https://expo.io/signup)
-
-Now you have successfully setup Expo and your AWS Cloud9 in your AWS Console. You can now proceed to [Lab 2](../amplify) to work on setting up the AWS Amplify CLI [TODO].
+Now you have successfully setup your AWS Cloud9 in your AWS account, you can now proceed to [next section](../).
