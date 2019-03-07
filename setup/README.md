@@ -136,7 +136,7 @@ This step allows us to use AWS Cloud9 to be the IDE for our React project under 
 ```
 cd ~/environment/rn
 
-docker run -it --rm -p 3000:3000 \
+docker run -it --rm -p 8080:3000 \
 -v "$PWD:/code" --user $UID \
 -v /home/ec2-user/.awsmobilejs:/home/ec2-user/.awsmobilejs \
  reactweb:latest bash
@@ -145,4 +145,4 @@ docker run -it --rm -p 3000:3000 \
 
 Now that you are in the container, run `amplify --version` to double check that the amplify CLI has been properly installed in the docker container.
 
-Now you have successfully setup your AWS Cloud9 in your AWS account, you can now proceed to [next section](../).
+Now you have successfully setup your AWS Cloud9 in your AWS account, you can now proceed to [next section](../).  
