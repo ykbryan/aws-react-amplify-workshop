@@ -109,7 +109,7 @@ WORKDIR /code
 
 RUN apt-get update && apt-get install -y python-dev screen
 
-RUN npm install -g create-react-app @aws-amplify/cli
+RUN npm install -g create-react-app yarn @aws-amplify/cli
 
 # CHANGE the UID accordingly, follow the step at the note section.
 RUN useradd -m -u 501 -s /bin/bash ec2-user

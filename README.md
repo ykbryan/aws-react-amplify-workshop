@@ -26,7 +26,7 @@ Setup AWS Cloud9 and AWS environment.
 Setup React development environment and AWS Amplify CLI in AWS Cloud9.
 
 ## [Lab 3](appsync/)
-Setup AppSync
+Setup AppSync & Pinpoint (Analytics)
 
 ## [Lab 4](app/)
 Run your React App on your Browser!
