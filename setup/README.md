@@ -59,7 +59,7 @@ Your Cloud9 instance is allocated 8 GB storage by default. We will increase this
 9. Go back and select your instance. Reboot that instance to make sure the EBS changes take effect.
 
 ## Configure security group
-AWS Cloud9 restricts inbound access to the IP addresses it uses to connect to the instance. In addition, we will need to allow traffic on `3000`, both of which are used by Expo. The Expo server runs on port `19000` while the npm package manager is exposed on `19001`. Refer to the [Expo docs](https://docs.expo.io/versions/v29.0.0/guides/how-expo-works.html) to learn more.
+AWS Cloud9 restricts inbound access to the IP addresses it uses to connect to the instance. In addition, we will need to allow traffic on `3000`.
 
 1. Go back to the tab where you have the EC2 instances.
 
@@ -94,7 +94,7 @@ AWS Cloud9 environment comes pre-installed with Docker.
 3. Switch to the newly created directory. Type `cd rn`
 ![AWS Cloud9 RN](images/aws-cloud9-rn.jpg)
 
-4. Create a `Dockerfile` which is the definition of the docker container that will host our Expo development environment. Type `touch Dockerfile`. And press **Enter** key. You will find a Dockerfile created inside the `rn` folder.
+4. Create a `Dockerfile` which is the definition of the docker container that will host our React development environment. Type `touch Dockerfile`. And press **Enter** key. You will find a Dockerfile created inside the `rn` folder.
 ![AWS Cloud9 Touch Dockerfile](images/aws-cloud9-touch-dockerfile.jpg)
 
 5. Double click to open it.
