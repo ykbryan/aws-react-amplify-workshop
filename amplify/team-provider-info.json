@@ -1,36 +1,26 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "reactamplifyworkshop-20190308190715-authRole",
-            "UnauthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190308190715-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190308190715-authRole",
+            "AuthRoleName": "reactamplifyworkshop-20190308193353-authRole",
+            "UnauthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190308193353-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190308193353-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "reactamplifyworkshop-20190308190715-deployment",
-            "UnauthRoleName": "reactamplifyworkshop-20190308190715-unauthRole",
-            "StackName": "reactamplifyworkshop-20190308190715",
-            "StackId": "arn:aws:cloudformation:us-east-1:566416766292:stack/reactamplifyworkshop-20190308190715/55b7a480-4192-11e9-92b4-128fc503e968"
-        },
-        "categories": {
-            "auth": {
-                "cognitofd975911": {}
-            }
+            "DeploymentBucketName": "reactamplifyworkshop-20190308193353-deployment",
+            "UnauthRoleName": "reactamplifyworkshop-20190308193353-unauthRole",
+            "StackName": "reactamplifyworkshop-20190308193353",
+            "StackId": "arn:aws:cloudformation:us-east-1:566416766292:stack/reactamplifyworkshop-20190308193353/0e4edce0-4196-11e9-b641-0e16aabfe77c"
         }
     },
     "prod": {
         "awscloudformation": {
-            "AuthRoleName": "reactamplifyworkshop-20190308191638-authRole",
-            "UnauthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190308191638-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190308191638-authRole",
+            "AuthRoleName": "reactamplifyworkshop-20190308193438-authRole",
+            "UnauthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190308193438-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190308193438-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "reactamplifyworkshop-20190308191638-deployment",
-            "UnauthRoleName": "reactamplifyworkshop-20190308191638-unauthRole",
-            "StackName": "reactamplifyworkshop-20190308191638",
-            "StackId": "arn:aws:cloudformation:us-east-1:566416766292:stack/reactamplifyworkshop-20190308191638/a503fa10-4193-11e9-a789-0e0621d8669c"
-        },
-        "categories": {
-            "auth": {
-                "cognitofd975911": {}
-            }
+            "DeploymentBucketName": "reactamplifyworkshop-20190308193438-deployment",
+            "UnauthRoleName": "reactamplifyworkshop-20190308193438-unauthRole",
+            "StackName": "reactamplifyworkshop-20190308193438",
+            "StackId": "arn:aws:cloudformation:us-east-1:566416766292:stack/reactamplifyworkshop-20190308193438/28f426e0-4196-11e9-93b7-0e1ffe4de6a4"
         }
     }
 }
