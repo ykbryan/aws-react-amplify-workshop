@@ -79,47 +79,12 @@ You should see:
 
 Let's now push your changes to the AWS and it will take a few minutes to complete.
 
-```
-amplify push
-```
-
-## Edit your GraphQL Schema
-
-Once done, let's edit your GraphQL schema to add in some capabilities. With an annotated schema, we can write the following:
-
-```
-type Event @model {
-  id: ID!
-  title: String!
-  description: String
-  status: String
-  user: User @connection(name: "UserEvents")
-  chats: [Chat] @connection(name: "EventChats")
-  followers: [Follower] @connection(name: "EventFollowers")
-  startAt: Int
-}
-```
-
-With Amplify CLI, you get a CRUD API with paging and filtering built-in; input types are created for each of the mutations and subscriptions are set up on each mutation; the backing store in a DynamoDB database. Now, let's back the data store with AWS ElasticSearch Service - this is good for basic searches and filtering, but you may want better searchability of your data. For example, you might want to do geo-lookups, or faceted search. For this sort of functionality, it would be a good idea to stream the data from DynamoDB to an ElasticSearch Service. To do that, add the @searchable directive to the type:
-
-```
-type Event @model @searchable {
-  id: ID!
-  title: String!
-  description: String
-  status: String
-  user: User @connection(name: "UserEvents")
-  chats: [Chat] @connection(name: "EventChats")
-  followers: [Follower] @connection(name: "EventFollowers")
-  startAt: Int
-}
-```
-
-Save the file again, and enter the following command to push your changes to the AWS.
+Note that you have an option to auto generate code for your newly created GraphQL API when you push your changes to the backend.
 
 ```
 amplify push
 ```
+
 
 ## Test your query
 
@@ -134,65 +99,21 @@ amplify push
 6. Now you can run your query, paste the following code into the query console:
 
 ```
-query getUsers{
-  listUsers{
+query getPosts {
+  listPosts {
     items {
       id
-      name
+      title
+      message
     }
   }
 }
 ```
 7. Click on the "**Play**" button to run your query.
 8. We do not have any users in our tables yet. You will see the result on the right side of the panel
-![AWS AppSync Console - Query Result](images/appsync-console-query-0-result.png)
+![AWS AppSync Console - Query Result](images/appsync-console-query-0-result1.png)
 
-Now you have successfully setup AppSync in your AWS environment. Let's configure Cognito User Pool's Trigger to add user details to DynamoDB.
-
-## Cognito User Pool Triggers
-
-First, let's add a new Lambda function in the AWS Console.
-
-1. Go to [AWS Lambda Console](https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1#/functions)
-2. Click "Create function" button at the top right hand corner
-3. At the Create function, select "Author from scratch", put in the following details:
-    - Name: lambda-cognito-dynamodb-table-put
-    - Runtime: Python 3.6
-    - Role: Choose a new role
-    - Role Name: lamba-cognito-dynamodb-execution
-4. Click "Create function" to proceed
-5. At the function code, copy/replace the code from `/code/lambda/lambda-cognito-dynamodb-table-put.py` 
-6. At the top right corner, click "Save" to proceed.
-
-Now, that we have setup the Lambda function, we need to give the function the right IAM permission. 
-
-1. Go to [AWS IAM Roles Console](https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/roles)
-2. Search for `lamba-cognito-dynamodb-execution` and click on the Role name
-3. At the Permissions section, select **Attach policies** to begin
-4. At the search bar, search for `Cognito` and select `AmazonCognitoReadOnly` to continue
-5. Select **Attach policy**
-6. Next, we will attach a permission for lambda to write to DynamoDB. Select **Add inline policy** to continue.
-![AWS IAM Inline Policy Button](images/iam-inline-policy-button.png)
-7. Key in the details as shown below:
-![AWS IAM Detail](images/iam-inline-policy.png)
-Note that you can find your ARN for your dynamoDB table under DynamoDB console as shown below:
-![AWS DynamoDB ARN](images/dynamodb-arn-name.png)
-8. Once done, select **Review policy** to continue
-9. Give the policy a name `lambda-cognito-dynamodb-policy`
-10. Select **Create policy**
-
-Now you should see your Role Summary with the right info below
-![AWS IAM Summary](images/aws-iam-summary.png)
-
-Once you have your Lambda function ready, we can now attach this function as one of the Cognito user pool's trigger.
-
-1. Go to the [AWS Cognito User Pool console](https://ap-southeast-1.console.aws.amazon.com/cognito/users)
-2. Select your user pool
-3. Go to triggers
-4. At the *Post authentication* section, select your lambda function in the dropdown list
-5. Scroll down, select **Save changes** at the bottom of the page
-
-You are now set. Next, you can proceed to [Lab 4](../app) to run your React Native app on your mobile phone.
+Now you have successfully setup AppSync in your AWS environment. 
 
 ## Create Analytics
 
