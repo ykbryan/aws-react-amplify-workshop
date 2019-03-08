@@ -1,19 +1,7 @@
 {
-	"hosting": {
-		"S3AndCloudFront": {
-			"service": "S3AndCloudFront",
-			"providerPlugin": "awscloudformation"
-		}
-	},
 	"auth": {
-		"cognito35a14396": {
+		"cognitofd975911": {
 			"service": "Cognito",
-			"providerPlugin": "awscloudformation"
-		}
-	},
-	"analytics": {
-		"reactamplifyworkshop": {
-			"service": "Pinpoint",
 			"providerPlugin": "awscloudformation"
 		}
 	},

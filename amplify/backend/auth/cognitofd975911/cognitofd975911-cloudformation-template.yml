@@ -72,10 +72,10 @@ Parameters:
               
   defaultPasswordPolicy:
     Type: String
-          
+              
   passwordPolicyMinLength:
-    Type: String
-                  
+    Type: Number
+              
   passwordPolicyCharacters:
     Type: CommaDelimitedList
             
@@ -118,15 +118,15 @@ Parameters:
   userpoolClientSetAttributes:
     Type: String
           
+  useDefault:
+    Type: String
+            
   resourceName:
     Type: String
             
   authSelections:
     Type: String
-                                                    
-  useDefault:
-    Type: String
-          
+                                                  
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
 
@@ -186,10 +186,10 @@ Resources:
       Policies:
         PasswordPolicy:
           MinimumLength: !Ref passwordPolicyMinLength
-          RequireLowercase: false
-          RequireNumbers: false
-          RequireSymbols: false
-          RequireUppercase: false
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+          RequireUppercase: true
       MfaConfiguration: !Ref mfaConfiguration
       SmsVerificationMessage: !Ref smsVerificationMessage
       SmsConfiguration: 
@@ -201,7 +201,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: cognito35a14396_app_clientWeb
+      ClientName: cognitofd975911_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -328,7 +328,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties: 
-      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'reactamplifyworkshop_identitypool_1803f64f', !Join ['',['reactamplifyworkshop_identitypool_1803f64f', '__', !Ref env]]]
+      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'cognitofd975911_identitypool_fd975911', !Join ['',['cognitofd975911_identitypool_fd975911', '__', !Ref env]]]
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient
