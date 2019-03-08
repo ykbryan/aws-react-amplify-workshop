@@ -19,6 +19,8 @@ amplify init
 Follow the commands in the following, take note that the `project's sourced directory` is ``.`` 
 ```
 Note: It is recommended to run this command from the root of your app directory
+? Enter a name for the project myapp
+? Enter a name for the environment prod
 ? Choose your default editor: None
 ? Choose the type of app that you're building javascript
 Please tell us about your project
