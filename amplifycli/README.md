@@ -157,4 +157,4 @@ Press `Y` and `Enter` to confirm. This will take a few minutes to run. Once done
 
 6. Check that your newly created user is in the users table with the status column set to **FORCE_CHANGE_PASSWORD** and enabled column set to **ENABLED**
 
-Once done, you can now proceed to next [section](../).
+Once done, you can now proceed to next [section](../appsync).
