@@ -11,12 +11,7 @@
 			"providerPlugin": "awscloudformation"
 		}
 	},
-	"analytics": {
-		"reactamplifyworkshop": {
-			"service": "Pinpoint",
-			"providerPlugin": "awscloudformation"
-		}
-	},
+	"analytics": {},
 	"api": {
 		"reactamplifyworkshop": {
 			"service": "AppSync",
