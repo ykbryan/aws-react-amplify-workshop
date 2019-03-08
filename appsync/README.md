@@ -6,8 +6,6 @@ AWS AppSync automatically updates the data in web and mobile applications in rea
 * [Create AppSync API](#create-appsync-api)
 * [Edit your GraphQL Schema](#edit-your-graphql-schema)
 * [Test your query](#test-your-query)
-* [Cognito User Pool Triggers](#cognito-user-pool-triggers)
-* [Create Analytics]($create-analytics)
 
 ## Create AppSync API
 

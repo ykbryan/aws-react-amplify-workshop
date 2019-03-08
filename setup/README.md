@@ -83,7 +83,7 @@ FROM node:11.1.0
 RUN mkdir -p /code
 WORKDIR /code
 
-RUN apt-get update && apt-get install -y python-dev screen
+RUN apt-get update && apt-get install -y python-dev screen unzip
 
 RUN npm install -g create-react-app yarn @aws-amplify/cli
 
