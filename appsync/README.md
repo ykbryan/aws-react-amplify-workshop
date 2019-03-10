@@ -9,20 +9,22 @@ AWS AppSync automatically updates the data in web and mobile applications in rea
 
 ## Create AppSync API
 
+Let's use Amplify to create an AppSync API via your Cloud9 command line. Ensure that you are running the command line within the Docker environment, and in the directory of react-demo.
+
 ```
 amplify api add
 ```
 
-At this point, you will see either GraphQL or REST. In this lab, we will create the AWS AppSync by selecting GraphQL. 
+At this point, you will see either GraphQL or REST. In this lab, we will create the AWS AppSync by selecting GraphQL.
 ```
 ? Please select from one of the below mentioned services (Use arrow keys)
-❯ GraphQL 
-  REST 
+❯ GraphQL
+  REST
 ```
 
 Enter the API name: `workshop`
 
-At this point, choose `Amazon Cognito User Pool` as your autorization type for this API.
+At this point, choose `Amazon Cognito User Pool` as your authorization type for this API.
 
 
 Select 'N' as you do not have an anootated GraphQL schema yet.
@@ -34,7 +36,7 @@ Select 'Y' for guided schema creation and edit the schema now. You should see:
 ? Do you want a guided schema creation? true
 ? What best describes your project: (Use arrow keys)
 ? What best describes your project: Single object with fields (e.g., “Todo” with ID, name, description)
-? Do you want to edit the schema now? (Y/n) 
+? Do you want to edit the schema now? (Y/n)
 ? Do you want to edit the schema now? Yes
 Please manually edit the file created at /code/amplify/backend/api/workshop/schema.graphql
 ```
@@ -91,7 +93,7 @@ amplify push
 2. Once you have found your ClientId, you can now go to **AppSync Queries**.
 3. Click on **Login with User Pools** (Since you are using Cognito UserPool for API authorization, you will need to login as the Cognito user). Use the test user you set up in the previous lab.
 ![AWS AppSync Query Console - Login](images/appsync-console-queries-unable-parse-jwt.png)
-4. Key in your **ClientId**, **Username** and **Password**. Note: you can find your **ClientId** in your Cognito console OR `aws-export.js` file. 
+4. Key in your **ClientId**, **Username** and **Password**. Note: you can find your **ClientId** in your Cognito console OR `aws-export.js` file.
 5. Click **Login**. At this time, you are prompted to key in the new password for this account.
 ![AWS AppSync Console - Password Reset](images/appsync-console-password-reset.png)
 6. Now you can run your query, paste the following code into the query console:
@@ -111,7 +113,7 @@ query getPosts {
 8. We do not have any users in our tables yet. You will see the result on the right side of the panel
 ![AWS AppSync Console - Query Result](images/appsync-console-query-0-result1.png)
 
-Now you have successfully setup AppSync in your AWS environment. 
+Now you have successfully setup AppSync in your AWS environment.
 
 ## Create Analytics
 
