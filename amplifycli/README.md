@@ -9,7 +9,8 @@
 
 ## Initialise a development project
 
-Run this command inside the react docker environment.
+1. In your Cloud9 environment, ensure that you are "inside" the react docker environment. To check this, the command line should begin with ec2-user@abc12345. If you are not, refer back to [Lab 1, step 11](../setup).
+![Running in Docker](images/aws-cloud9-amplify-installed.png)
 
 **IMPORTANT**: Ensure you are in the ```/code``` directory.
 ```
