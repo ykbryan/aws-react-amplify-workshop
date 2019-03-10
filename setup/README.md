@@ -28,8 +28,8 @@ We will be using React to develop our web app and will run a React Web App insid
 
 7. While it is being built, you may move on to the next section.
 
-8. After a few minutes, when your environment is up, you should see following screen.
-![AWS Cloud9](images/aws-cloud9.jpg)
+8. After a few minutes, when your environment is up, you should see following screen.                                      
+  ![AWS Cloud9](images/aws-cloud9.png)
 
 ## Allocate storage
 Your Cloud9 instance is allocated 8 GB storage by default. We will increase this because we will be installing dependencies.
