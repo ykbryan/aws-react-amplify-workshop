@@ -27,5 +27,22 @@
             "StackName": "reactamplifyworkshop-20190308193438",
             "StackId": "arn:aws:cloudformation:us-east-1:566416766292:stack/reactamplifyworkshop-20190308193438/28f426e0-4196-11e9-93b7-0e1ffe4de6a4"
         }
+    },
+    "feature": {
+        "awscloudformation": {
+            "AuthRoleName": "reactamplifyworkshop-20190311164732-authRole",
+            "UnauthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190311164732-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::566416766292:role/reactamplifyworkshop-20190311164732-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "reactamplifyworkshop-20190311164732-deployment",
+            "UnauthRoleName": "reactamplifyworkshop-20190311164732-unauthRole",
+            "StackName": "reactamplifyworkshop-20190311164732",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:566416766292:stack/reactamplifyworkshop-20190311164732/4fc98850-43da-11e9-90e7-0a04c4887732"
+        },
+        "categories": {
+            "auth": {
+                "cognitoaaccbce0": {}
+            }
+        }
     }
 }
