@@ -1,6 +1,6 @@
 # AWS Amplify
 
-AWS Amplify provides a declarative and easy-to-use interface across different categories of cloud operations. AWS Amplify goes well with any JavaScript based frontend workflow, and React for web developers.
+[AWS Amplify](https://aws-amplify.github.io/) provides a declarative and easy-to-use interface across different categories of cloud operations. AWS Amplify goes well with any JavaScript based frontend workflow, and React for web developers.
 
 ## Table of Contents:
 * [Initialise a development project](#initialise-a-development-project)
@@ -9,14 +9,15 @@ AWS Amplify provides a declarative and easy-to-use interface across different ca
 
 ## Initialise a development project
 
-Run this command inside the react docker environment. 
+In your Cloud9 environment, ensure that you are "inside" the react docker environment. To check this, the command line should begin with ec2-user@abc12345. If you are not, refer back to [Lab 1, step 11](../setup).
+![Running in Docker](images/aws-cloud9-amplify-installed.png)
 
 **IMPORTANT**: Ensure you are in the ```/code``` directory.
 ```
 amplify init
 ```
 
-Follow the commands in the following, take note that the `project's sourced directory` is ``.`` 
+Follow the commands as follow, take note that the `project's source directory` is ``.``
 ```
 Note: It is recommended to run this command from the root of your app directory
 ? Enter a name for the project myapp
@@ -66,7 +67,7 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html
 ? Please choose the profile you want to use. default
 ```
 
-Then you should see a bunch of `CREATE_IN_PROGRESS` commands running at the background for you. These are cloudformation templates that are automatically generated via the `init` command.
+Then you should see a bunch of `CREATE_IN_PROGRESS` commands running at the background for you. These are Cloudformation templates that are automatically generated via the `init` command.
 
 You should see this output:
 ```
@@ -95,11 +96,11 @@ You should see:
 
 ```
 Using service: Cognito, provided by: awscloudformation
- The current configured provider is Amazon Cognito. 
+ The current configured provider is Amazon Cognito.
  Do you want to use the default authentication and security configuration? (Use arrow keys)
-❯ Yes, use the default configuration. 
-  No, I will set up my own configuration. 
-  I want to learn more. 
+❯ Yes, use the default configuration.
+  No, I will set up my own configuration.
+  I want to learn more.
 ```
 
 You can choose to setup your own configuration. At this point, let's choose the default configuration. Press `Enter`
@@ -132,7 +133,7 @@ At this point, you can see a table that shows the overall changes that are going
 | Category | Resource name   | Operation | Provider plugin   |
 | -------- | --------------- | --------- | ----------------- |
 | Auth     | cognito80421876 | Create    | awscloudformation |
-? Are you sure you want to continue? (Y/n) 
+? Are you sure you want to continue? (Y/n)
 ```
 
 Press `Y` and `Enter` to confirm. This will take a few minutes to run. Once done, you should see the following:
@@ -156,5 +157,6 @@ Press `Y` and `Enter` to confirm. This will take a few minutes to run. Once done
 ![AWS Cognito Create User](images/aws-cognito-create-user.png)
 
 6. Check that your newly created user is in the users table with the status column set to **FORCE_CHANGE_PASSWORD** and enabled column set to **ENABLED**
+![Amazon Cognito User Created](images/amazon-cognito-user-created.png)
 
 Once done, you can now proceed to next [section](../appsync).

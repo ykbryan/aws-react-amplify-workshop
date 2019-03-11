@@ -6,7 +6,7 @@ This is a self-paced workshop designed for developers who want to build a React 
 
 ![Reference Architecture](img/reference-architecture.png)
 
-This is a sample web application to allow users to create blog posts on the website. My web application is written in [React](https://reactjs.org/) and I will also be using [AWS Amplify](https://aws-amplify.github.io/amplify-js/index.html) to quickly bootstrap the whole application. AWS Amplify provides a declarative and make it really easy to add features like authentication and analytic to our mobile application. Our backend will be powered by AWS AppSnyc, a fully managed GraphQL service. AWS AppSync defines a GraphQL Schema with data types and GraphQL operations (query, mutation and subscription). It also associate a set of resolvers to Amazon DynamoDB, where we have 1 dynamoDB table for our data model.
+This is a sample web application to allow users to create blog posts on the website. My web application is written in [React](https://reactjs.org/) and I will also be using [AWS Amplify](https://aws-amplify.github.io/amplify-js/index.html) to quickly bootstrap the whole application. AWS Amplify provides a declarative and make it really easy to add features like authentication and analytics to our mobile application. Our backend will be powered by [AWS AppSync](https://aws.amazon.com/appsync/), a fully managed GraphQL service. AWS AppSync defines a GraphQL Schema with data types and GraphQL operations (query, mutation and subscription). It also associate a set of resolvers to Amazon DynamoDB, where we have 1 dynamoDB table for our data model.
 
 ### Screenshots
 
@@ -17,7 +17,7 @@ This is a sample web application to allow users to create blog posts on the webs
 
 
 The data model will consist of:
-* **Posts**: a list of posts (blog posts) that each consists of title and message
+* **Posts**: a list of posts (blog posts) that each consists of a title and a blog content.
 
 ## [Lab 1](setup/)
 Setup AWS Cloud9 and AWS environment.
@@ -31,7 +31,7 @@ Setup AppSync & Pinpoint (Analytics)
 ## [Lab 4](app/)
 Run your React App on your Browser!
 
-## [Lab 5](cicd/) 
+## [Lab 5](cicd/)
 CI/CD for your React Web App
 
 ## Clean up
