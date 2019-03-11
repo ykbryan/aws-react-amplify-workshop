@@ -6,7 +6,7 @@ import Content from './components/Content'
 import Amplify from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 import aws_exports from './aws-exports'; // specify the location of aws-exports.js file on your project
-Amplify.configure(aws_exports);
+Amplify.configure(aws_exports); //test
 
 class App extends Component {
   render() {
