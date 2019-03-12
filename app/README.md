@@ -56,3 +56,5 @@ Notice that some part of the app might not be working. You are not complete the 
 1. Complete the graphql query posts at `src/components/Home.js`
 2. Complete the graphql mutation post at `src/components/New.js`
 3. Complete the graphql query to get a particular post at `src/components/Sample.js`
+
+Not: every time you make a change in the JS, remember to `amplify publish` to the web.
