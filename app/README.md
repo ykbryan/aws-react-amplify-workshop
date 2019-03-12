@@ -4,17 +4,6 @@
 
 **WARNING:** Make sure you are **inside React Docker** environment before you proceed.
 
-We have prepared a sample app for you in this exercise. Please download it in your Cloud9 by entering the following commands:
-
-```
-cd /code
-wget https://github.com/ykbryan/aws-react-amplify-workshop/raw/master/webapp.zip
-unzip webapp.zip
-mv webapp/* .
-rm -Rf webapp/
-rm webapp.zip
-```
-
 Run the following commands to get your web app running in your AWS Cloud9:
 ```
 cd /code && yarn
