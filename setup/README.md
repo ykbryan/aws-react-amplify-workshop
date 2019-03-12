@@ -130,5 +130,16 @@ This step allows us to use AWS Cloud9 to be the IDE for our React project under 
   Now that you are in the container, run `amplify --version` to double check that the amplify CLI has been properly installed in the docker container.
 
   ![AWS Amplify installed in AWS Cloud9](images/aws-cloud9-amplify-installed.png)
+  
+  Now, run the following commands to download the React app:
+  
+  ```
+cd /code
+wget https://github.com/ykbryan/aws-react-amplify-workshop/raw/master/webapp.zip
+unzip webapp.zip
+mv webapp/* .
+rm -Rf webapp/
+rm webapp.zip
+```
 
 Now you have successfully setup your AWS Cloud9 in your AWS account, you can now proceed to [next section](../amplifycli/).
