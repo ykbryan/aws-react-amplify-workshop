@@ -37,6 +37,20 @@ And you should now see the web app running on a separate tab.
 
 ![preview-window](images/cloud9-preview-window.png)
 
+## Publish your Web App
+
+Now that you can successfully see your app in the Cloud9 environment. You can now push your React app to Amazon S3 and host it there. Following the command:
+
+```
+amplify hosting add
+```
+
+Now, publish your Web app.
+
+```
+amplify publish
+```
+
 ## Bonus Exercise
 Notice that some part of the app might not be working. You are not complete the following in order to make this app work:
 1. Complete the graphql query posts at `src/components/Home.js`
