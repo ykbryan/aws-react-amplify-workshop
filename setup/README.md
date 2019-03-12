@@ -131,7 +131,7 @@ This step allows us to use AWS Cloud9 to be the IDE for our React project under 
 
   ![AWS Amplify installed in AWS Cloud9](images/aws-cloud9-amplify-installed.png)
   
-  Now, run the following commands to download the React app:
+We have prepared a sample app for you in this exercise. Please download it in your Cloud9 by entering the following commands:
   
   ```
 cd /code
