@@ -13,22 +13,24 @@ class About extends Component {
     Analytics.record({ name: 'sampleVisit' });
   }
   getContent = async () => {
-    const graphqlQuery = `query getPost {
-      getPost(id: "aca25059-ca0e-4a77-be8b-96494f5cadfb") {
+    var graphqlQuery = `query getPost {
+      getPost(id: "5f82ba02-e05c-4b94-babb-e2602295dd0f") {
         title
         message
       }
     }`;
-
     try {
-      const response = await API.graphql(graphqlOperation(graphqlQuery));
+      var response = await API.graphql(graphqlOperation(graphqlQuery));
       console.log(response)
       const items = response.data.getPost;
-      if (items.message) {
-        this.setState({
-          message: items.message
-        })
+      if (items) {
+        if (items.message) {
+          this.setState({
+            message: items.message
+          })
+        }
       }
+
     } catch (e) {
       console.error(e);
     }
